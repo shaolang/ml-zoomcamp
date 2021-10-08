@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 scikit-learn = "*"
+flask = "*"
+waitress = "*"
+requests = "*"
 
 [dev-packages]
 
