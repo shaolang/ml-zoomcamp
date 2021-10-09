@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from glob import glob
 from waitress import serve
 import pickle
 
@@ -9,7 +10,8 @@ def load_python_object_from_file(fname):
     return obj
 
 DV = load_python_object_from_file('dv.bin')
-MODEL = load_python_object_from_file('model1.bin')
+MODEL_FILE = glob('model*.bin')[0]
+MODEL = load_python_object_from_file(MODEL_FILE)
 app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
