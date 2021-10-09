@@ -18,7 +18,7 @@ def predict_churn():
     return jsonify(predict(customer))
 
 def predict(customer):
-    prediction = MODEL.predict_proba(DV.transform(customer))[0][0]
+    prediction = MODEL.predict_proba(DV.transform(customer))[0][1]
     return {'churn_probability': float(prediction), 'churn': bool(prediction)}
 
 
