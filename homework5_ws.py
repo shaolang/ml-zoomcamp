@@ -25,7 +25,7 @@ def predict(customer):
 
 
 if __name__ == '__main__':
-    host_port = 'localhost:8080'
+    host_port = '0.0.0.0:8080'
 
     print(f'Listening at {host_port}')
     serve(app, listen=host_port)
