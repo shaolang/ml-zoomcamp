@@ -58,9 +58,10 @@ def create_pipeline(trainX, trainy):
     ])
 
 
-df = pd.read_csv('resale-flat-price-2017-2021.csv')
-trainX, trainy, _testX, _testy = split_train_test(df)
-pipeline = create_pipeline(trainX, trainy)
-pipeline.fit(trainX, trainy)
+def train_and_dump_model(filename):
+    df = pd.read_csv('resale-flat-price-2017-2021.csv')
+    trainX, trainy, _testX, _testy = split_train_test(df)
+    pipeline = create_pipeline(trainX, trainy)
+    pipeline.fit(trainX, trainy)
 
-dump(pipeline, 'pipeline.bin')
+    dump(pipeline, filename)
