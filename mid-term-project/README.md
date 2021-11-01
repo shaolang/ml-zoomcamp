@@ -26,11 +26,13 @@ This project contains the following artifacts:
 * `predict.py`: runs a web-service for the resale price prediction.
 * `sample-data.json`: contains a single sample extracted from the original
   data source for testing the web-service.
+* `pipeline.bin.zip`: zips a pre-trained model for ease of use.
 
 ## Testing the Web Service
 
-To test the web service, run `python predict.py`. It'll start the
-web service, listening at `0.0.0.0:8080`.
+To test the web service, either run `python train_script.py` to train and export
+the model, or unzip `pipeline.bin.zip` first. Then run `python predict.py`.
+It'll start the web service, listening at `0.0.0.0:8080`.
 
 Then run the following command to send the data in `sample-data.json`
 to interact with the service:
