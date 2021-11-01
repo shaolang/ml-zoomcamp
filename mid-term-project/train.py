@@ -6,6 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer, OneHotEncoder, StandardScaler
 
+import numpy as np
 import pandas as pd
 import re
 
@@ -28,7 +29,7 @@ def convert_remaining_lease_to_years(df):
         else:
             return round(years + float(m[2]) / 12, 1)
 
-    df['remaining_lease'] = df['remaining_lease'].apply(convert)
+    df.loc[:, 'remaining_lease'] = df.loc[:, 'remaining_lease'].apply(convert)
 
     return df
 
@@ -40,7 +41,7 @@ def convert_month_to_ordinal(df):
     return df
 
 
-def create_pipeline(trainX, trainy):
+def create_pipeline():
     return Pipeline([
         ('remaining-lease-converter',
             FunctionTransformer(convert_remaining_lease_to_years)),
@@ -56,12 +57,3 @@ def create_pipeline(trainX, trainy):
         ('random-forest-regressor',
             RandomForestRegressor(max_depth=36, n_estimators=30, n_jobs=-1))
     ])
-
-
-def train_and_dump_model(filename):
-    df = pd.read_csv('resale-flat-price-2017-2021.csv')
-    trainX, trainy, _testX, _testy = split_train_test(df)
-    pipeline = create_pipeline(trainX, trainy)
-    pipeline.fit(trainX, trainy)
-
-    dump(pipeline, filename)
