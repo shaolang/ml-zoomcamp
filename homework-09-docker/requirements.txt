@@ -1,0 +1,4 @@
+--extra-index-url https://google-coral.github.io/py-repo/
+
+keras-image-helper
+https://github.com/alexeygrigorev/tflite-aws-lambda/blob/main/tflite/tflite_runtime-2.7.0-cp38-cp38-linux_x86_64.whl?raw=true
