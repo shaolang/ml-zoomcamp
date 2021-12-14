@@ -1,0 +1,6 @@
+Flask       ~= 2.0
+matplotlib  ~= 3.5
+notebook    ~= 6.4
+numpy       ~= 1.21
+tensorflow  ~= 2.7
+waitress    ~= 2.0
