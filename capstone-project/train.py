@@ -75,5 +75,5 @@ def build_and_train_model(trainX, trainy, n_convd_layers, n_dense_layers, n_neur
 if __name__ == '__main__':
     trainX, trainy = load_images('train')
 
-    model = build_and_train_model(trainX, trainy, 2, 2, 50)
+    model = build_and_train_model(trainX, trainy, 3, 5, 100)
     model.save('model.h5')
