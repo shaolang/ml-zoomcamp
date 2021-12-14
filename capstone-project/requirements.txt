@@ -1,8 +1,10 @@
 Flask       ~= 2.0
 h5py        ~= 3.6
+imageio     ~= 2.13
 matplotlib  ~= 3.5
 notebook    ~= 6.4
 numpy       ~= 1.21
 pyyaml      ~= 6.0
+requests    ~= 2.26
 tensorflow  ~= 2.7
 waitress    ~= 2.0
