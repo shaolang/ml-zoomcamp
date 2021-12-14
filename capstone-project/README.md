@@ -12,6 +12,8 @@ This project contains the following artifacts:
 * `notebook.ipynb`: contains Exploratory Data Analysis (EDA), feature
   transformation, multiple model training, model selection, and model
   hyperparameter-tuning.
+* `train.py`: implements the script to train and export the model as `model.h5`.
+* `predict.py`: runs a web service for the facial expression classification.
 
 # Running the Project
 
@@ -24,6 +26,23 @@ To run the project:
   packages.
 * Run `jupyter notebook` to start Jupyter Notebook web server.
 * Open `notebook.ipynb` shown in the web browser.
+
+# Create TensorFlow Model
+
+Run `python train.py` to create the TensorFlow model. Once it's completed,
+it'll create the file `model.h5` in the same directory as `train.py`.
+
+# Testing the Web Service
+
+To test the web service, create the model file first by following the
+instructions in the Create TensorFlow model above. Then run `python predict.py`.
+It'll start the web service, listening at 0.0.0.0:8080.
+
+Then run the following command to send the data to interact with the service:
+
+```
+curl -X POST -H "Content-Type: text/plain" --data "https://cdn-media.threadless.com/cache/profile_photos/B7/1529098_1_profile_picture_48x48.jpg" http://localhost:8080/
+```
 
 [data-source]: https://www.kaggle.com/msambare/fer2013
 [python]: https://www.python.org
